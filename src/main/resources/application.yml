@@ -13,4 +13,4 @@ spring:
 
 jwt:
   secret: "your-secret-key-should-be-very-long-and-random"
-  expirationMs: 8640000000 # 1000 days
+  expirationMs: 8640000000 # 100 days
