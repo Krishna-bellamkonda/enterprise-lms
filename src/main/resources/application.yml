@@ -10,3 +10,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+
+jwt:
+  secret: "your-secret-key-should-be-very-long-and-random"
+  expirationMs: 8640000000 # 1000 days
