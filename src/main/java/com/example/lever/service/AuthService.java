@@ -1,26 +1,32 @@
 package com.example.lever.service;
 
-
 import com.example.lever.model.Role;
 import com.example.lever.model.User;
 import com.example.lever.repository.UserRepository;
 import com.example.lever.security.JwtUtil;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class AuthService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtUtil jwtUtil;
 
+
+    // Constructor injection for UserRepository, PasswordEncoder, and JwtUtil
+    //used @RequiredArgsConstructor to avoid below commented constructor
+    /*
     public AuthService(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtUtil jwtUtil) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtUtil = jwtUtil;
     }
+    */
 
     public String registerUser(String email, String password, Role role) {
         if (userRepository.findByEmail(email).isPresent()) {
